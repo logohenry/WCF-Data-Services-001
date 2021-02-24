@@ -1,0 +1,383 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AdventureWorksLTModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="AdventureWorksLTEntities">
+    <EntitySet Name="Address1" EntityType="AdventureWorksLTModel.Address1" />
+    <EntitySet Name="Customer1" EntityType="AdventureWorksLTModel.Customer1" />
+    <EntitySet Name="CustomerAddress1" EntityType="AdventureWorksLTModel.CustomerAddress1" />
+    <EntitySet Name="Product1" EntityType="AdventureWorksLTModel.Product1" />
+    <EntitySet Name="ProductCategory1" EntityType="AdventureWorksLTModel.ProductCategory1" />
+    <EntitySet Name="ProductDescription1" EntityType="AdventureWorksLTModel.ProductDescription1" />
+    <EntitySet Name="ProductModel1" EntityType="AdventureWorksLTModel.ProductModel1" />
+    <EntitySet Name="ProductModelProductDescription1" EntityType="AdventureWorksLTModel.ProductModelProductDescription1" />
+    <EntitySet Name="SalesOrderDetail1" EntityType="AdventureWorksLTModel.SalesOrderDetail1" />
+    <EntitySet Name="SalesOrderHeader1" EntityType="AdventureWorksLTModel.SalesOrderHeader1" />
+    <AssociationSet Name="FK_CustomerAddress_Address_AddressID1" Association="AdventureWorksLTModel.FK_CustomerAddress_Address_AddressID1">
+      <End Role="Address1" EntitySet="Address1" />
+      <End Role="CustomerAddress1" EntitySet="CustomerAddress1" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SalesOrderHeader_Address_BillTo_AddressID1" Association="AdventureWorksLTModel.FK_SalesOrderHeader_Address_BillTo_AddressID1">
+      <End Role="Address1" EntitySet="Address1" />
+      <End Role="SalesOrderHeader1" EntitySet="SalesOrderHeader1" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SalesOrderHeader_Address_ShipTo_AddressID1" Association="AdventureWorksLTModel.FK_SalesOrderHeader_Address_ShipTo_AddressID1">
+      <End Role="Address1" EntitySet="Address1" />
+      <End Role="SalesOrderHeader1" EntitySet="SalesOrderHeader1" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CustomerAddress_Customer_CustomerID1" Association="AdventureWorksLTModel.FK_CustomerAddress_Customer_CustomerID1">
+      <End Role="Customer1" EntitySet="Customer1" />
+      <End Role="CustomerAddress1" EntitySet="CustomerAddress1" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SalesOrderHeader_Customer_CustomerID1" Association="AdventureWorksLTModel.FK_SalesOrderHeader_Customer_CustomerID1">
+      <End Role="Customer1" EntitySet="Customer1" />
+      <End Role="SalesOrderHeader1" EntitySet="SalesOrderHeader1" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Product_ProductCategory_ProductCategoryID1" Association="AdventureWorksLTModel.FK_Product_ProductCategory_ProductCategoryID1">
+      <End Role="ProductCategory1" EntitySet="ProductCategory1" />
+      <End Role="Product1" EntitySet="Product1" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Product_ProductModel_ProductModelID1" Association="AdventureWorksLTModel.FK_Product_ProductModel_ProductModelID1">
+      <End Role="ProductModel1" EntitySet="ProductModel1" />
+      <End Role="Product1" EntitySet="Product1" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SalesOrderDetail_Product_ProductID1" Association="AdventureWorksLTModel.FK_SalesOrderDetail_Product_ProductID1">
+      <End Role="Product1" EntitySet="Product1" />
+      <End Role="SalesOrderDetail1" EntitySet="SalesOrderDetail1" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductCategory_ProductCategory_ParentProductCategoryID_ProductCategoryID1" Association="AdventureWorksLTModel.FK_ProductCategory_ProductCategory_ParentProductCategoryID_ProductCategoryID1">
+      <End Role="ProductCategory1" EntitySet="ProductCategory1" />
+      <End Role="ProductCategory11" EntitySet="ProductCategory1" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductModelProductDescription_ProductDescription_ProductDescriptionID1" Association="AdventureWorksLTModel.FK_ProductModelProductDescription_ProductDescription_ProductDescriptionID1">
+      <End Role="ProductDescription1" EntitySet="ProductDescription1" />
+      <End Role="ProductModelProductDescription1" EntitySet="ProductModelProductDescription1" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductModelProductDescription_ProductModel_ProductModelID1" Association="AdventureWorksLTModel.FK_ProductModelProductDescription_ProductModel_ProductModelID1">
+      <End Role="ProductModel1" EntitySet="ProductModel1" />
+      <End Role="ProductModelProductDescription1" EntitySet="ProductModelProductDescription1" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SalesOrderDetail_SalesOrderHeader_SalesOrderID1" Association="AdventureWorksLTModel.FK_SalesOrderDetail_SalesOrderHeader_SalesOrderID1">
+      <End Role="SalesOrderHeader1" EntitySet="SalesOrderHeader1" />
+      <End Role="SalesOrderDetail1" EntitySet="SalesOrderDetail1" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Address1">
+    <Key>
+      <PropertyRef Name="AddressID" />
+    </Key>
+    <Property Name="AddressID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AddressLine1" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="AddressLine2" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="City" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="StateProvince" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CountryRegion" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PostalCode" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="rowguid" Type="Guid" Nullable="false" />
+    <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="CustomerAddresses" Relationship="AdventureWorksLTModel.FK_CustomerAddress_Address_AddressID1" FromRole="Address1" ToRole="CustomerAddress1" />
+    <NavigationProperty Name="SalesOrderHeaders" Relationship="AdventureWorksLTModel.FK_SalesOrderHeader_Address_BillTo_AddressID1" FromRole="Address1" ToRole="SalesOrderHeader1" />
+    <NavigationProperty Name="SalesOrderHeaders1" Relationship="AdventureWorksLTModel.FK_SalesOrderHeader_Address_ShipTo_AddressID1" FromRole="Address1" ToRole="SalesOrderHeader1" />
+  </EntityType>
+  <EntityType Name="Customer1">
+    <Key>
+      <PropertyRef Name="CustomerID" />
+    </Key>
+    <Property Name="CustomerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NameStyle" Type="Boolean" Nullable="false" />
+    <Property Name="Title" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+    <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MiddleName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Suffix" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="CompanyName" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="SalesPerson" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="EmailAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="PasswordHash" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="PasswordSalt" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="rowguid" Type="Guid" Nullable="false" />
+    <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="CustomerAddresses" Relationship="AdventureWorksLTModel.FK_CustomerAddress_Customer_CustomerID1" FromRole="Customer1" ToRole="CustomerAddress1" />
+    <NavigationProperty Name="SalesOrderHeaders" Relationship="AdventureWorksLTModel.FK_SalesOrderHeader_Customer_CustomerID1" FromRole="Customer1" ToRole="SalesOrderHeader1" />
+  </EntityType>
+  <EntityType Name="CustomerAddress1">
+    <Key>
+      <PropertyRef Name="CustomerID" />
+      <PropertyRef Name="AddressID" />
+    </Key>
+    <Property Name="CustomerID" Type="Int32" Nullable="false" />
+    <Property Name="AddressID" Type="Int32" Nullable="false" />
+    <Property Name="AddressType" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="rowguid" Type="Guid" Nullable="false" />
+    <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Address" Relationship="AdventureWorksLTModel.FK_CustomerAddress_Address_AddressID1" FromRole="CustomerAddress1" ToRole="Address1" />
+    <NavigationProperty Name="Customer" Relationship="AdventureWorksLTModel.FK_CustomerAddress_Customer_CustomerID1" FromRole="CustomerAddress1" ToRole="Customer1" />
+  </EntityType>
+  <EntityType Name="Product1">
+    <Key>
+      <PropertyRef Name="ProductID" />
+    </Key>
+    <Property Name="ProductID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ProductNumber" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="Color" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="StandardCost" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="ListPrice" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="Size" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="Weight" Type="Decimal" Precision="8" Scale="2" />
+    <Property Name="ProductCategoryID" Type="Int32" />
+    <Property Name="ProductModelID" Type="Int32" />
+    <Property Name="SellStartDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="SellEndDate" Type="DateTime" Precision="3" />
+    <Property Name="DiscontinuedDate" Type="DateTime" Precision="3" />
+    <Property Name="ThumbNailPhoto" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="ThumbnailPhotoFileName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="rowguid" Type="Guid" Nullable="false" />
+    <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="ProductCategory" Relationship="AdventureWorksLTModel.FK_Product_ProductCategory_ProductCategoryID1" FromRole="Product1" ToRole="ProductCategory1" />
+    <NavigationProperty Name="ProductModel" Relationship="AdventureWorksLTModel.FK_Product_ProductModel_ProductModelID1" FromRole="Product1" ToRole="ProductModel1" />
+    <NavigationProperty Name="SalesOrderDetails" Relationship="AdventureWorksLTModel.FK_SalesOrderDetail_Product_ProductID1" FromRole="Product1" ToRole="SalesOrderDetail1" />
+  </EntityType>
+  <EntityType Name="ProductCategory1">
+    <Key>
+      <PropertyRef Name="ProductCategoryID" />
+    </Key>
+    <Property Name="ProductCategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ParentProductCategoryID" Type="Int32" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="rowguid" Type="Guid" Nullable="false" />
+    <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Products" Relationship="AdventureWorksLTModel.FK_Product_ProductCategory_ProductCategoryID1" FromRole="ProductCategory1" ToRole="Product1" />
+    <NavigationProperty Name="ProductCategory11" Relationship="AdventureWorksLTModel.FK_ProductCategory_ProductCategory_ParentProductCategoryID_ProductCategoryID1" FromRole="ProductCategory1" ToRole="ProductCategory11" />
+    <NavigationProperty Name="ProductCategory2" Relationship="AdventureWorksLTModel.FK_ProductCategory_ProductCategory_ParentProductCategoryID_ProductCategoryID1" FromRole="ProductCategory11" ToRole="ProductCategory1" />
+  </EntityType>
+  <EntityType Name="ProductDescription1">
+    <Key>
+      <PropertyRef Name="ProductDescriptionID" />
+    </Key>
+    <Property Name="ProductDescriptionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="rowguid" Type="Guid" Nullable="false" />
+    <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="ProductModelProductDescriptions" Relationship="AdventureWorksLTModel.FK_ProductModelProductDescription_ProductDescription_ProductDescriptionID1" FromRole="ProductDescription1" ToRole="ProductModelProductDescription1" />
+  </EntityType>
+  <EntityType Name="ProductModel1">
+    <Key>
+      <PropertyRef Name="ProductModelID" />
+    </Key>
+    <Property Name="ProductModelID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CatalogDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="rowguid" Type="Guid" Nullable="false" />
+    <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Products" Relationship="AdventureWorksLTModel.FK_Product_ProductModel_ProductModelID1" FromRole="ProductModel1" ToRole="Product1" />
+    <NavigationProperty Name="ProductModelProductDescriptions" Relationship="AdventureWorksLTModel.FK_ProductModelProductDescription_ProductModel_ProductModelID1" FromRole="ProductModel1" ToRole="ProductModelProductDescription1" />
+  </EntityType>
+  <EntityType Name="ProductModelProductDescription1">
+    <Key>
+      <PropertyRef Name="ProductModelID" />
+      <PropertyRef Name="ProductDescriptionID" />
+      <PropertyRef Name="Culture" />
+    </Key>
+    <Property Name="ProductModelID" Type="Int32" Nullable="false" />
+    <Property Name="ProductDescriptionID" Type="Int32" Nullable="false" />
+    <Property Name="Culture" Type="String" Nullable="false" MaxLength="6" FixedLength="true" Unicode="true" />
+    <Property Name="rowguid" Type="Guid" Nullable="false" />
+    <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="ProductDescription" Relationship="AdventureWorksLTModel.FK_ProductModelProductDescription_ProductDescription_ProductDescriptionID1" FromRole="ProductModelProductDescription1" ToRole="ProductDescription1" />
+    <NavigationProperty Name="ProductModel" Relationship="AdventureWorksLTModel.FK_ProductModelProductDescription_ProductModel_ProductModelID1" FromRole="ProductModelProductDescription1" ToRole="ProductModel1" />
+  </EntityType>
+  <EntityType Name="SalesOrderDetail1">
+    <Key>
+      <PropertyRef Name="SalesOrderID" />
+      <PropertyRef Name="SalesOrderDetailID" />
+    </Key>
+    <Property Name="SalesOrderID" Type="Int32" Nullable="false" />
+    <Property Name="SalesOrderDetailID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OrderQty" Type="Int16" Nullable="false" />
+    <Property Name="ProductID" Type="Int32" Nullable="false" />
+    <Property Name="UnitPrice" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="UnitPriceDiscount" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="LineTotal" Type="Decimal" Nullable="false" Precision="38" Scale="6" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="rowguid" Type="Guid" Nullable="false" />
+    <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Product" Relationship="AdventureWorksLTModel.FK_SalesOrderDetail_Product_ProductID1" FromRole="SalesOrderDetail1" ToRole="Product1" />
+    <NavigationProperty Name="SalesOrderHeader" Relationship="AdventureWorksLTModel.FK_SalesOrderDetail_SalesOrderHeader_SalesOrderID1" FromRole="SalesOrderDetail1" ToRole="SalesOrderHeader1" />
+  </EntityType>
+  <EntityType Name="SalesOrderHeader1">
+    <Key>
+      <PropertyRef Name="SalesOrderID" />
+    </Key>
+    <Property Name="SalesOrderID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RevisionNumber" Type="Byte" Nullable="false" />
+    <Property Name="OrderDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="DueDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ShipDate" Type="DateTime" Precision="3" />
+    <Property Name="Status" Type="Byte" Nullable="false" />
+    <Property Name="OnlineOrderFlag" Type="Boolean" Nullable="false" />
+    <Property Name="SalesOrderNumber" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="PurchaseOrderNumber" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="AccountNumber" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="CustomerID" Type="Int32" Nullable="false" />
+    <Property Name="ShipToAddressID" Type="Int32" />
+    <Property Name="BillToAddressID" Type="Int32" />
+    <Property Name="ShipMethod" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreditCardApprovalCode" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="SubTotal" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="TaxAmt" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="Freight" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="TotalDue" Type="Decimal" Nullable="false" Precision="19" Scale="4" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="rowguid" Type="Guid" Nullable="false" />
+    <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Address" Relationship="AdventureWorksLTModel.FK_SalesOrderHeader_Address_BillTo_AddressID1" FromRole="SalesOrderHeader1" ToRole="Address1" />
+    <NavigationProperty Name="Address1" Relationship="AdventureWorksLTModel.FK_SalesOrderHeader_Address_ShipTo_AddressID1" FromRole="SalesOrderHeader1" ToRole="Address1" />
+    <NavigationProperty Name="Customer" Relationship="AdventureWorksLTModel.FK_SalesOrderHeader_Customer_CustomerID1" FromRole="SalesOrderHeader1" ToRole="Customer1" />
+    <NavigationProperty Name="SalesOrderDetails" Relationship="AdventureWorksLTModel.FK_SalesOrderDetail_SalesOrderHeader_SalesOrderID1" FromRole="SalesOrderHeader1" ToRole="SalesOrderDetail1" />
+  </EntityType>
+  <Association Name="FK_CustomerAddress_Address_AddressID1">
+    <End Type="AdventureWorksLTModel.Address1" Role="Address1" Multiplicity="1" />
+    <End Type="AdventureWorksLTModel.CustomerAddress1" Role="CustomerAddress1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Address1">
+        <PropertyRef Name="AddressID" />
+      </Principal>
+      <Dependent Role="CustomerAddress1">
+        <PropertyRef Name="AddressID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SalesOrderHeader_Address_BillTo_AddressID1">
+    <End Type="AdventureWorksLTModel.Address1" Role="Address1" Multiplicity="0..1" />
+    <End Type="AdventureWorksLTModel.SalesOrderHeader1" Role="SalesOrderHeader1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Address1">
+        <PropertyRef Name="AddressID" />
+      </Principal>
+      <Dependent Role="SalesOrderHeader1">
+        <PropertyRef Name="BillToAddressID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SalesOrderHeader_Address_ShipTo_AddressID1">
+    <End Type="AdventureWorksLTModel.Address1" Role="Address1" Multiplicity="0..1" />
+    <End Type="AdventureWorksLTModel.SalesOrderHeader1" Role="SalesOrderHeader1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Address1">
+        <PropertyRef Name="AddressID" />
+      </Principal>
+      <Dependent Role="SalesOrderHeader1">
+        <PropertyRef Name="ShipToAddressID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CustomerAddress_Customer_CustomerID1">
+    <End Type="AdventureWorksLTModel.Customer1" Role="Customer1" Multiplicity="1" />
+    <End Type="AdventureWorksLTModel.CustomerAddress1" Role="CustomerAddress1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer1">
+        <PropertyRef Name="CustomerID" />
+      </Principal>
+      <Dependent Role="CustomerAddress1">
+        <PropertyRef Name="CustomerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SalesOrderHeader_Customer_CustomerID1">
+    <End Type="AdventureWorksLTModel.Customer1" Role="Customer1" Multiplicity="1" />
+    <End Type="AdventureWorksLTModel.SalesOrderHeader1" Role="SalesOrderHeader1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer1">
+        <PropertyRef Name="CustomerID" />
+      </Principal>
+      <Dependent Role="SalesOrderHeader1">
+        <PropertyRef Name="CustomerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Product_ProductCategory_ProductCategoryID1">
+    <End Type="AdventureWorksLTModel.ProductCategory1" Role="ProductCategory1" Multiplicity="0..1" />
+    <End Type="AdventureWorksLTModel.Product1" Role="Product1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductCategory1">
+        <PropertyRef Name="ProductCategoryID" />
+      </Principal>
+      <Dependent Role="Product1">
+        <PropertyRef Name="ProductCategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Product_ProductModel_ProductModelID1">
+    <End Type="AdventureWorksLTModel.ProductModel1" Role="ProductModel1" Multiplicity="0..1" />
+    <End Type="AdventureWorksLTModel.Product1" Role="Product1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductModel1">
+        <PropertyRef Name="ProductModelID" />
+      </Principal>
+      <Dependent Role="Product1">
+        <PropertyRef Name="ProductModelID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SalesOrderDetail_Product_ProductID1">
+    <End Type="AdventureWorksLTModel.Product1" Role="Product1" Multiplicity="1" />
+    <End Type="AdventureWorksLTModel.SalesOrderDetail1" Role="SalesOrderDetail1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product1">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="SalesOrderDetail1">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductCategory_ProductCategory_ParentProductCategoryID_ProductCategoryID1">
+    <End Type="AdventureWorksLTModel.ProductCategory1" Role="ProductCategory1" Multiplicity="0..1" />
+    <End Type="AdventureWorksLTModel.ProductCategory1" Role="ProductCategory11" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductCategory1">
+        <PropertyRef Name="ProductCategoryID" />
+      </Principal>
+      <Dependent Role="ProductCategory11">
+        <PropertyRef Name="ParentProductCategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductModelProductDescription_ProductDescription_ProductDescriptionID1">
+    <End Type="AdventureWorksLTModel.ProductDescription1" Role="ProductDescription1" Multiplicity="1" />
+    <End Type="AdventureWorksLTModel.ProductModelProductDescription1" Role="ProductModelProductDescription1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductDescription1">
+        <PropertyRef Name="ProductDescriptionID" />
+      </Principal>
+      <Dependent Role="ProductModelProductDescription1">
+        <PropertyRef Name="ProductDescriptionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductModelProductDescription_ProductModel_ProductModelID1">
+    <End Type="AdventureWorksLTModel.ProductModel1" Role="ProductModel1" Multiplicity="1" />
+    <End Type="AdventureWorksLTModel.ProductModelProductDescription1" Role="ProductModelProductDescription1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductModel1">
+        <PropertyRef Name="ProductModelID" />
+      </Principal>
+      <Dependent Role="ProductModelProductDescription1">
+        <PropertyRef Name="ProductModelID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SalesOrderDetail_SalesOrderHeader_SalesOrderID1">
+    <End Type="AdventureWorksLTModel.SalesOrderHeader1" Role="SalesOrderHeader1" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="AdventureWorksLTModel.SalesOrderDetail1" Role="SalesOrderDetail1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SalesOrderHeader1">
+        <PropertyRef Name="SalesOrderID" />
+      </Principal>
+      <Dependent Role="SalesOrderDetail1">
+        <PropertyRef Name="SalesOrderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

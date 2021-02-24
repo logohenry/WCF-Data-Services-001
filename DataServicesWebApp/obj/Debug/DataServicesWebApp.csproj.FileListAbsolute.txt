@@ -1,0 +1,13 @@
+C:\Users\EnriqueLG\Desktop\Visual Studio\DataSamples\WCF Data Services\DataServicesWebApp\bin\DataServicesWebApp.dll
+C:\Users\EnriqueLG\Desktop\Visual Studio\DataSamples\WCF Data Services\DataServicesWebApp\bin\DataServicesWebApp.pdb
+C:\Users\EnriqueLG\Desktop\Visual Studio\DataSamples\WCF Data Services\DataServicesWebApp\obj\Debug\DataServicesWebApp.dll
+C:\Users\EnriqueLG\Desktop\Visual Studio\DataSamples\WCF Data Services\DataServicesWebApp\obj\Debug\DataServicesWebApp.pdb
+C:\Users\EnriqueLG\Desktop\My Documents\Visual Studio\CSharpSamples\DataSamples\WCF Data Services\DataServicesWebApp\bin\DataServicesWebApp.dll
+C:\Users\EnriqueLG\Desktop\My Documents\Visual Studio\CSharpSamples\DataSamples\WCF Data Services\DataServicesWebApp\bin\DataServicesWebApp.pdb
+C:\Users\EnriqueLG\Desktop\My Documents\Visual Studio\CSharpSamples\DataSamples\WCF Data Services\DataServicesWebApp\bin\EntityFramework.dll
+C:\Users\EnriqueLG\Desktop\My Documents\Visual Studio\CSharpSamples\DataSamples\WCF Data Services\DataServicesWebApp\bin\EntityFramework.xml
+C:\Users\EnriqueLG\Desktop\My Documents\Visual Studio\CSharpSamples\DataSamples\WCF Data Services\DataServicesWebApp\obj\Debug\DataServicesWebApp.csprojAssemblyReference.cache
+C:\Users\EnriqueLG\Desktop\My Documents\Visual Studio\CSharpSamples\DataSamples\WCF Data Services\DataServicesWebApp\obj\Debug\DataServicesWebApp.csproj.CoreCompileInputs.cache
+C:\Users\EnriqueLG\Desktop\My Documents\Visual Studio\CSharpSamples\DataSamples\WCF Data Services\DataServicesWebApp\obj\Debug\DataServicesWebApp.csproj.CopyComplete
+C:\Users\EnriqueLG\Desktop\My Documents\Visual Studio\CSharpSamples\DataSamples\WCF Data Services\DataServicesWebApp\obj\Debug\DataServicesWebApp.dll
+C:\Users\EnriqueLG\Desktop\My Documents\Visual Studio\CSharpSamples\DataSamples\WCF Data Services\DataServicesWebApp\obj\Debug\DataServicesWebApp.pdb
